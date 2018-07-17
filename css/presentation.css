@@ -1,0 +1,44 @@
+#logo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+}
+#colorBar {
+    position:fixed;
+    bottom:0;
+    width: 50vw;
+    margin-left:25vw;
+    padding:.25rem;
+    display: flex;
+    flex-direction: row;
+}
+#colorBar > div {
+    flex: 1;
+    text-align: center;
+}
+#colorBar > div:nth-child(1) {
+    background-color: #24C8C8;
+}
+#colorBar > div:nth-child(2) {
+    background-color: #C9005D;
+}
+#colorBar > div:nth-child(3) {
+    background-color: #92C824;
+}
+#colorBar > div:nth-child(4) {
+    background-color: #005BA4;
+}
+.text-left {
+    text-align: left;
+}
+.tile-name {
+    color :#005BA4;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid #005BA4;
+}
+img { border: none !important; }
+#map {
+    min-height: 50vh;
+    background-image: url(../images/map.png);
+}
