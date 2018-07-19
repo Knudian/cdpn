@@ -1,8 +1,8 @@
 <!doctype html>
 <html>
 	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
 		<title>Présentation CDPN</title>
 
@@ -29,7 +29,9 @@
 				<!-- Titre -->
 				<section class="container">
 					<article class="row">
-						<header class="tile-name">Junior Software architect</header>
+						<header class="tile-name">
+							<h2 class="tile-name">Junior Software architect</h2>
+						</header>
 						<article class="text-center">
 							<br/>
 							IMIE, March '17 - September '18<br/>
@@ -302,24 +304,60 @@
 						<br/>
 						<img src="images/pkg.png"/>
 					</section>
-					<!-- Repositories -->
+				</section>
+				<!-- Repositories -->
+				<section>
                     <section class="container">
 						<header class="tile-name">Repository pattern (<em>Repositories</em>)</header>
 						<br/>
-						<img src="images/pattern/repositories.png" class="img-responsive"/>
-					</section>
-					<!-- DomainClient -->
-					<section>
-						<header class="tile-name">The DomainClient</header>
-						<br/>
 						<article class="text-left">
 							<ul>
-								<li>Endpoint for all resources comming from the <em>DomainFactory</em> system</li>
-								<li>Implements the <em>Repository pattern</em></li>
+								<li>Avoiding the standard Laravel (Eloquent) model manipulation</li>
+								<li>Forcing a <em>layered</em> system</li>
+								<li>Improving maintenance</li>
+								<li>Easing dependency injection</li>
 							</ul>
 						</article>
+						<aside class="notes">
+							From "ActiveRecord" (Eloquent/EntityFramework) to DataMapper (Doctrine/Hibernate)<br/>
+						</aside>
 					</section>
-					<!-- DomainManager -->
+                    <section>
+                        <header class="tile-name">Concept</header>
+                        <br/>
+                        <article class="text-left">
+                            <ul>
+                                <li class="fragment">Many types of datas
+                                    <ul>
+                                        <li>persisted in database (as views, or tables)</li>
+                                        <li>persisted via API</li>
+                                        <li>not persisted</li>
+                                        <li>files</li>
+                                        <li>... and more</li>
+                                    </ul>
+                                </li>
+                                <li class="fragment">One system to ease data manipulation</li>
+                            </ul>
+                            <p class="fragment"> ... whatever the storage / source</p>
+                        </article>
+                    </section>
+					<section>
+						<img src="images/pattern/01_RepositoryPattern/00_full.png"/>
+					</section>
+				</section>
+				<!-- DomainClient -->
+                <section>
+                    <header class="tile-name">The DomainClient</header>
+                    <br/>
+                    <article class="text-left">
+                        <ul>
+                            <li>Endpoint for all resources comming from the <em>DomainFactory</em> system</li>
+                            <li>Implements the <em>Repository pattern</em></li>
+                        </ul>
+                    </article>
+                </section>
+                <!-- DomainManager -->
+                <section>
 					<section>
 						<header class="tile-name">The DomainManager</header>
 						<br/>
@@ -340,38 +378,38 @@
 					<section>
 						<img src="images/zonefile.png"/>
 					</section>
-					<!-- HttpRedirect Manager -->
-					<section>
-						<header class="tile-name">The HttpRedirectionManager</header>
-						<br/>
-						<ul>
-							<li>Uses : <em>Repositories</em>, <em>DomainClient</em>, <em>HttpClient</em></li>
-							<li>No regression</li>
-							<li>Taking the old and new HTTP systems into account</li>
-							<li>Allowing SSL certificates (HTTPS)</li>
-						</ul>
-					</section>
-					<!-- FailOver Manager -->
-					<section>
-						<header class="tile-name">FailOverManager</header>
-						<br/>
-						<ul>
-							<li>Uses : <em>Repositories</em>, <em>DomainClient</em>, <em>FailOverClient</em></li>
-							<li>Configuring record checks</li>
-						</ul>
-						<p><strong>FailOver</strong> : dynamic record update from checks</p>
-					</section>
-					<!-- Error Manager -->
-					<section>
-						<header class="tile-name">ErrorManager</header>
-						<br/>
-						<ul>
-							<li>Uses : <em>Repositories</em>, <em>DomainClient</em>, <em>HttpClient</em>, <em>FailOverClient</em></li>
-							<li>Overview of all errors occuring in the network</li>
-							<li>Allows to replay any <em>order</em></li>
-						</ul>
-					</section>
-				</section>
+                </section>
+                <!-- HttpRedirect Manager -->
+                <section>
+                    <header class="tile-name">The HttpRedirectionManager</header>
+                    <br/>
+                    <ul>
+                        <li>Uses : <em>Repositories</em>, <em>DomainClient</em>, <em>HttpClient</em></li>
+                        <li>No regression</li>
+                        <li>Taking the old and new HTTP systems into account</li>
+                        <li>Allowing SSL certificates (HTTPS)</li>
+                    </ul>
+                </section>
+                <!-- FailOver Manager -->
+                <section>
+                    <header class="tile-name">FailOverManager</header>
+                    <br/>
+                    <ul>
+                        <li>Uses : <em>Repositories</em>, <em>DomainClient</em>, <em>FailOverClient</em></li>
+                        <li>Configuring record checks</li>
+                    </ul>
+                    <p><strong>FailOver</strong> : dynamic record update from checks</p>
+                </section>
+                <!-- Error Manager -->
+                <section>
+                    <header class="tile-name">ErrorManager</header>
+                    <br/>
+                    <ul>
+                        <li>Uses : <em>Repositories</em>, <em>DomainClient</em>, <em>HttpClient</em>, <em>FailOverClient</em></li>
+                        <li>Overview of all errors occuring in the network</li>
+                        <li>Allows to replay any <em>order</em></li>
+                    </ul>
+                </section>
 				<!-- Project Management -->
 				<section>
 					<section>

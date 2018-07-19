@@ -6,7 +6,7 @@
 }
 #colorBar {
     position:fixed;
-    bottom:0;
+    bottom: 1rem;
     width: 50vw;
     margin-left:25vw;
     padding:.25rem;
@@ -33,9 +33,7 @@
     text-align: left;
 }
 .tile-name {
-    color :#005BA4;
-    margin-bottom: 3rem;
-    border-bottom: 1px solid #005BA4;
+    color :#005BA4 !important;
 }
 img { border: none !important; }
 #map {
