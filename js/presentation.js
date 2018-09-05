@@ -228,3 +228,47 @@ var issueGraph = new Chart(issueGraphCtx, {
         }
     }
 });
+
+var ipPie = {
+    type: 'pie',
+    data: {
+        datasets:[{
+            data:[
+                13.7,
+                35.9,
+                13.7,
+                1.6,
+                14.1,
+                17.6,
+                3.5
+            ],
+            backgroundColor:[
+                '#B2B2B2',
+                '#AA4CAA',
+                '#0000FF',
+                '#FF9E23',
+                '#FF0000',
+                '#EAEA00',
+                '#00B200'
+            ],
+            label:''
+        }],
+        labels: [
+            'Reserved',
+            'Historical',
+            'RIPE-NCC',
+            'AfriNIC',
+            'ARIN',
+            'APNIC',
+            'LACNIC'
+        ]
+    },
+    options: {
+        responsive: true,
+        legend: {
+            position: 'left'
+        }
+    }
+};
+var ipCtx = document.getElementById('ipGraph').getContext('2d');
+var ipGraph = new Chart(ipCtx, ipPie);

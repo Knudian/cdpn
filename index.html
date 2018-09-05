@@ -25,8 +25,8 @@
 			<div>&nbsp;</div>
 		</div>
 		<div class="reveal">
-			<div class="slides">
-				<!-- Titre -->
+			<section class="slides">
+				<!-- 0. Titre du document -->
 				<section class="container">
 					<article class="row">
 						<header class="tile-name">
@@ -39,300 +39,409 @@
 						</article>
 					</article>
 				</section>
-				<!-- Resume -->
+				<!-- 1. A propos de moi -->
+				<section class="container">
+					<article class="row">
+						<header class="col-xs-12">
+							<h3 class="tile-name">About me</h3>
+						</header>
+						<article class="col-xs-12 text-left">
+							34yo, <br/>
+							former NCO in geography<br/>
+							~10 years as developper<br/>
+							<br/>
+							<i class="fab fa-github-alt"></i> github : <a href="https://github.com/Knudian" target="_blank">Knudian</a><br/>
+							<i class="fab fa-linkedin"></i> LinkedIn : <a href="https://www.linkedin.com/in/knudian/" target="_blank">knudian</a><br/>
+						</article>
+					</article>
+				</section>
+				<!-- 2. La société Nameshield -->
+				<section class="container">
+					<article class="row">
+						<header class="col-xs-12">
+							<h3 class="tile-name">Nameshield Group</h3>
+						</header>
+						<section class="col-xs-6">
+							<p>Online brand protection<br/>DNS Management</p>
+							<ul>
+								<li>~80 <i class="far fa-user"></i> in Angers</li>
+								<li>~20 <i class="far fa-user"></i> in Monaco</li>
+								<li>~10 <i class="far fa-user"></i> in Paris</li>
+								<li>overseas</li>
+							</ul>
+							<p>ISO 27001 certificated</p>
+						</section>
+						<section class="col-xs-6">
+							<div id="map"></div>
+						</section>
+					</article>
+				</section>
+				<!-- 3. Le projet Anycast -->
+				<section class="container">
+					<h3 class="tile-name">The Anycast Project</h3>
+				</section>
+				<!-- 3.1. Environnement DNS -->
+				<!-- 3.1.1. Les adresses IP -->
 				<section>
-					<!-- About me -->
-					<section>
-						<article class="tile-name">About me</article>
-						<article>
-							<p class="text-left">
-								34yo, <br/>
-								former NCO in geography<br/>
-								~10 years as developper<br/>
+					<section class="container">
+						<h3 class="tile-name">DNS Environment</h3>
+						<h4><em>IP Adresses</em></h4>
+					</section>
+					<!-- 3.1.1.1. IP v4 et v6 -->
+					<section class="container">
+						<article class="row">
+							<h6 class="tile-name">IP addresses v4 & v6</h6>
+							<br/>
+							<br/>
+							<article class="text-left">
+								<p><strong>v4</strong> : 32bits encoded, 2<sup>32</sup> addresses => <em>(~4,269&times;10<sup>9</sup>)</em></p>
 								<br/>
-								<i class="fab fa-github-alt"></i> github : <a href="https://github.com/Knudian" target="_blank">Knudian</a><br/>
-								<i class="fab fa-linkedin"></i> LinkedIn : <a href="https://www.linkedin.com/in/knudian/" target="_blank">knudian</a><br/>
-							</p>
+								<p><strong>v6</strong> : 128bits encoded, 2<sup>128</sup> addresses => <em>(~3,403&times;10<sup>38</sup>)</em></p>
+							</article>
 						</article>
 					</section>
-				</section>
-				<!-- Nameshield -->
-				<section class="container">
+					<!-- 3.1.1.2. Découpage mondial des adresses IP -->
 					<section class="container">
-						<article class="row tile-name">Nameshield Group</article>
-						<br/>
-						<div class="row">
-							<div class="col-xs-6">
-								<p>Online brand protection<br/>DNS Management</p>
-								<ul>
-									<li>~80 <i class="far fa-user"></i> in Angers</li>
-									<li>~20 <i class="far fa-user"></i> in Monaco</li>
-									<li>~10 <i class="far fa-user"></i> in Paris</li>
-									<li>overseas</li>
-								</ul>
-								<p>ISO 27001 certificated</p>
-							</div>
-							<div class="col-xs-6" id="map"></div>
-						</div>
+						<article class="row">
+							<h6 class="tile-name">World distribution</h6>
+							<canvas id="ipGraph" width="1920" height="1080"></canvas>
+						</article>
+						<aside class="notes">
+							Répartition des valeurs :
+							- Reserved : 13.7%,
+							- Historiques : 35.9%,
+							- RIPE-NCC (Europe) : 13.7%,
+							- AfriNIC (Afrique) : 1.6%,
+							- ARIN : 14.1%,
+							- APNIC (Asie - Pacifique) : 17.6%,
+							- LACNIC (Amérique du sud) : 3.5%
+						</aside>
+					</section>
+					<!-- 3.1.1.3. Registres régionaux et locaux -->
+					<section class="container">
+						<article class="row">
+							<ul>
+								<li>1 worldwide authority (IANA),</li>
+								<li>5 <em>R</em>egional <em>I</em>nternet <em>R</em>egistries,</li>
+								<li>&gt;18k <em>L</em>ocal <em>R</em>egistries,</li>
+								<li>~2k for France only,</li>
+								<li>including &gt;1k of french companies</li>
+							</ul>
+						</article>
+					</section>
+					<!-- Carte des RIR -->
+					<section class="container">
+						<img alt="RIR" src="images/network/rir.png"/>
 					</section>
 				</section>
-				<!-- Project summary -->
+				<!-- 3.1.2. Les types de routage -->
 				<section>
-					<section>
-						<article class="tile-name">The <em>Anycast</em> project</article>
-						<br/>
-						<ul class="text-left">
-							<li>New product line</li>
-							<li>Agile/Scrum methodology</li>
-							<li>Multiples UIs and packages</li>
-						</ul>
+					<section class="container">
+						<h3 class="tile-name">DNS Environment</h3>
+						<h4><em>Broadcasting types</em></h4>
+						<article class="row">
+							<img src="images/broadcast/index.png" alt="Image routage"/>
+						</article>
 					</section>
-					<aside class="notes">
-						Présenter les 3 slides en anglais :
-							-> qui je suis,
-							-> la société,
-							-> ce que j'ai fait.
-					</aside>
-				</section>
-                <!-- Anycast ecosystem -->
-                <section>
-                	<section>
-						<header class="tile-name">The Anycast ecosystem</header>
-						<br/>
-	                	<article class="text-left">
-	                		<ol>
-	                			<li>World IP fragmentation</li>
-	                			<li>Broadcasts</li>
-	                			<li>Geocast</li>
-	                			<li>Anycast</li>
-	                		</ol>
-	                	</article>
-	                </section>
-                	<section>
-                		<header class="tile-name">IP addresses v4 & v6</header>
-						<br/>
-                		<article class="text-left">
-							<p><strong>v4</strong> : 32bits encoded, 2<sup>32</sup> addresses => <em>(~4,269&times;10<sup>9</sup>)</em></p>
-							<br/>
-							<p><strong>v6</strong> : 128bits encoded, 2<sup>128</sup> addresses => <em>(~3,403&times;10<sup>38</sup>)</em></p>
-                		</article>
-					</section>
-					<section>
-						<img atl="RIR" src="images/network/rir.png"/>
-					</section>
-                	<section>
-						<header class="tile-name">IP addresses in the world</header>
-						<br/>
-                		<article class="text-left">
-                			<ul>
-                				<li>1 worldwide authority (IANA),</li>
-                				<li>5 <em>R</em>egional <em>I</em>nternet <em>R</em>egistries,</li>
-                				<li>&gt;18k <em>L</em>ocal <em>R</em>egistries,</li>
-                				<li>~2k for France only,</li>
-                				<li>including &gt;1k of french companies</li>
-                			</ul>
-                		</article>
-                	</section>
-                </section>
-				<!-- Les différents types de broadcast -->
-                <section>
-                    <section>
-                        <header class="tile-name">Different types of broadcast</header>
-                        <article>
-                            <img src="images/broadcast/index.png" alt="Image routage"/>
-                        </article>
-                    </section>
-                    <!-- Unicast -->
-					<section>
+					<!-- 3.1.2.1. Unicast -->
+					<section class="container">
 						<header class="tile-name">Unicast</header>
 						<article>
-							<img src="images//broadcast/unicast.png" alt="Image unicast"/>
+							<img src="images/broadcast/unicast.png" alt="Image unicast"/>
 						</article>
-                        <aside class="notes">
-                            Exemple : une personne A parle à une personne B
-                        </aside>
+						<aside class="notes">
+							Exemple : une personne A parle à une personne B
+						</aside>
 					</section>
-                    <!-- Broadcast -->
-					<section>
+					<!-- 3.1.2.2. Broadcast -->
+					<section class="container">
 						<header class="tile-name">Broadcast</header>
 						<article>
 							<img src="images/broadcast/broadcast.png" alt="Image broadcast"/>
 						</article>
-                        <aside class="notes">
-                            Exemple : une personne A parle à tout un groupe de personnes.
-                        </aside>
+						<aside class="notes">
+							Exemple : une personne A parle à tout un groupe de personnes.
+						</aside>
 					</section>
-                    <!-- Multicast -->
-					<section>
+					<!-- 3.1.2.3. Multicast -->
+					<section class="container">
 						<header class="tile-name">Multicast</header>
 						<article>
 							<img src="images/broadcast/multicast.png" alt="Image multicast"/>
 						</article>
-                        <aside class="notes">
-                            Exemple : une personne A parle à un groupe de personnes particulier dans une salle
-                        </aside>
-                    </section>
-                    <!-- Anycast -->
-					<section>
+						<aside class="notes">
+							Exemple : une personne A parle à un groupe de personnes particulier dans une salle
+						</aside>
+					</section>
+					<!-- 3.1.2.4. Anycast -->
+					<section class="container">
 						<header class="tile-name">Anycast</header>
 						<article>
 							<img src="images/broadcast/anycast.png" alt="Image anycast"/>
 						</article>
-                        <aside class="notes">
-                            Exemple : une personne A parle aux personnes les plus proches d'elles
-                        </aside>
+						<aside class="notes">
+							Exemple : une personne A parle aux personnes les plus proches d'elles
+						</aside>
 					</section>
-                    <section>
+					<!-- 3.1.2.4.a Résistance naturelle au DDoS -->
+					<section class="container">
 						<header class="tile-name">A natural DDoS repellent</header>
 						<article class="text-left">
 							<p class="fragment">A network is composed of redundant nodes</p>
 							<p class="fragment">Response is given by the most efficient node of the group</p>
 							<p class="fragment">Can only be broken if the real address of a node is known by black hats</p>
 						</article>
-                    </section>
-                    <!-- Geocast -->
-					<section>
-                        <header class="tile-name">Geocast</header>
+					</section>
+					<!-- 3.1.2.5. Geocast -->
+					<section class="container">
+						<header class="tile-name">Geocast</header>
 						<article>
 							<img src="images/broadcast/geocast.png" alt="Image geocast"/>
 						</article>
-                        <aside class="notes">
-                            Exemples : une personne A parle à un groupe de personnes rassemblées dans une salle précise.
-                        </aside>
-                    </section>
-                    <section>
+						<aside class="notes">
+							Exemples : une personne A parle à un groupe de personnes rassemblées dans une salle précise.
+						</aside>
+					</section>
+					<!-- 3.1.2.5.a- Communication locale améliorée -->
+					<section class="container">
 						<header class="tile-name">Easing local communication</header>
 						<article class="text-left">
 							<p class="fragment">Used by telecommunications and SAR units, to dispatch informations to all people within a defined area</p>
 							<p class="fragment"><em>Natural disasters prevention</em></p>
 							<p class="fragment"><em>Earthquake messaging in Japan</em></p>
 						</article>
-                    </section>
-				</section>
-				<!-- Work done -->
-				<section>
-					<header class="tile-name">The Anycast project</header>
-					<br/>
-					<article class="text-left">
-						<ul>
-							<li>A dedicated team</li>
-							<li>Architecture</li>
-							<li>Technical environment</li>
-							<li>Standards</li>
-							<li>Multiple packages</li>
-							<li>Project management</li>
-							<li>Statistics</li>
-						</ul>
-					</article>
-				</section>
-				<!-- the team -->
-				<section>
-					<header class="tile-name">A dedicated team</header>
-					<br/>
-					<article class="text-left">
-						<ul>
-							<li>1 product owner</li>
-							<li>1 project leader</li>
-							<li>1~2 sysadmins</li>
-							<li>4 JavaEE developers</li>
-							<li>4 PHP developers</li>
-						</ul>
-					</article>
-				</section>
-				<!-- Architecture logicielle -->
-				<section>
-					<section>
-					<header class="tile-name">Architecture</header>
-					</section>
-					<section>
-						<img src="images/archi/1.png" alt="Architecture logicielle - général"/>
-						<aside class="notes">
-							Architecture système générale
-						</aside>
-					</section>
-					<section>
-						<img src="images/archi/2.png" alt="Architecture logicielle - applicatif"/>
-						<aside class="notes">
-							Architecture logicielle SI
-						</aside>
 					</section>
 				</section>
-				<!-- Technical environment -->
+				<!-- 3.1.3. Les noms de domaine -->
 				<section>
-					<header class="tile-name">Technical environment</header>
-					<br/>
-					<img alt="Technologies" src="images/technos.png"/>
-				</section>
-				<section>
-					<header class="tile-name">Code quality</header>
-					<br/>
-					<article class="text-left">
-						<ul>
-							<li>Towards a code standardization : PSR 1, 2, 7</li>
-							<li>Code review for each functionality step</li>
-							<li>Functional testing with Codeception</li>
-							<li>CI with Jenkins</li>
-							<li>Documentation</li>
-							<li>Cookbooks</li>
-						</ul>
-					</article>
-					<aside class="notes">
-						1 : Basic Coding standard
-						2 : Coding Style Guide
-						7 : Http Message interface
-
-						++ => 5 : PHPdoc standard
-
-						Codeception : framework de tests fonctionnels (basé sur phpunit).
-
-						CI : Intégration continue
-					</aside>
-				</section>
-				<!-- Packages -->
-				<section>
-					<section>
-						<header class="tile-name">Multiple packages</header>
+					<section class="container">
+						<h3 class="tile-name">DNS Environment</h3>
+						<h4><em>Domaine Names</em></h4>
+					</section>
+					<!-- 3.1.3.1. Distribution -->
+					<section class="container">
+						<header class="tile-name">Hierarchy</header>
 						<br/>
 						<article class="text-left">
 							<ul>
-								<li>Repository pattern implementation package</li>
-								<li>An API client package</li>
-								<li>A domain technical management package</li>
-								<li>An HTTP redirection management package</li>
-								<li>A FailOver management package</li>
-								<li>An Error management package</li>
+								<li><em>infrastructure</em> : <code>.arpa</code></li>
+								<li><em>gTLD</em>, generic :
+									<ul>
+										<li>sponsored : <code>.app</code>, <code>.gov</code>, <code>.museum</code>, <code>.xxx</code>, ...</li>
+										<li>geographic : <code>.cat</code>, <code>.asia</code>, <code>.paris</code>, <code>.amazon</code>, ...</li>
+										<li>brand : <code>.men</code>, <code>.loan</code>, <code>.sncf</code>, <code>.loreal</code>, ...</li>
+									</ul>
+								</li>
+								<li><em>ccTLD</em>, country code : <code>.fr</code>, <code>.re</code>, <code>.tv</code>, <code>.io</code>, ...</li>
+								<li>and more : <code>.شبكة.</code>, <code>.游戏</code>, <code>.онлайн</code></li>
 							</ul>
 						</article>
 					</section>
-					<section>
-						<header class="tile-name">Global package organization</header>
+					<!-- 3.1.3.2. Hiérarchie -->
+					<section class="container">
+						<p>1 TLD = 1 <em>Registry</em></p>
+						<p>1 Registry = Many registrars</p>
 						<br/>
-						<img src="images/pkg.png"/>
+						<br/>
+						<p class="text-left">Registry : TLD owner (ex: AFNIC for <em>.fr</em>)</p>
+						<p class="text-left">Registrar : TLD reseller (ex: Nameshield, Ovh ...)</p>
 					</section>
 				</section>
-				<!-- Repositories -->
+				<!-- 3.1.4. Configuration d'un nom de domaine -->
+				<section>
+					<section class="container">
+						<h3 class="tile-name">DNS Environment</h3>
+						<h4><em>Domain name configuration</em></h4>
+					</section>
+					<!-- exemple avec google -->
+					<section class="container">
+                        <article class="row">
+                            <img alt="a dns dig" src="images/config/1.png"/>
+                        </article>
+					</section>
+					<!-- exemple issu de travaux -->
+					<section class="container">
+                        <article class="row">
+                            <img alt="dns config in project" src="images/config/2.png"/>
+                        </article>
+					</section>
+				</section>
+				<!-- 3.1.5. Failover -->
 				<section>
                     <section class="container">
-						<header class="tile-name">Repository pattern (<em>Repositories</em>)</header>
-						<br/>
-						<article class="text-left">
-							<ul>
-								<li>Avoiding the standard Laravel (Eloquent) model manipulation</li>
-								<li>Forcing a <em>layered</em> system</li>
-								<li>Improving maintenance</li>
-								<li>Easing dependency injection</li>
-							</ul>
-						</article>
-						<aside class="notes">
-							From "ActiveRecord" (Eloquent/EntityFramework) to DataMapper (Doctrine/Hibernate)<br/>
-						</aside>
-					</section>
-                    <section>
-                        <header class="tile-name">Concept</header>
+                        <h3 class="tile-name">DNS Environment</h3>
+                        <h4><em>Failover</em></h4>
+                    </section>
+                    <section class="container">
+                        <article class="row text-left">
+                            <p>1 host name, for multiple records</p>
+                            <p><em>Round robin</em> principle</p>
+                            <img src="images/failover-1.png">
+                        </article>
+                    </section>
+                </section>
+				<!-- 3.2. Au sein de Nameshield -->
+				<section>
+                    <section class="container">
+                        <h3 class="tile-name">Project Management</h3>
+                    </section>
+					<!-- 3.2.1. Une équipe dédiée -->
+					<section class="container">
+                        <header class="tile-name">A dedicated team</header>
                         <br/>
+                        <ul>
+                            <li>2 product owners (business and technical)</li>
+                            <li>1 project leader (technical PO)</li>
+                            <li>1~2 sysadmins</li>
+                            <li>4 JavaEE developers</li>
+                            <li>4 PHP developers</li>
+                        </ul>
+                    </section>
+					<!-- 3.2.2. Méthodologie -->
+					<section class="container">
+                        <header class="tile-name">An agile combination as a methodology</header>
+                        <hr/>
+                        <ul>
+                            <li>Scrum : backlogs, user stories, sprints</li>
+                            <li>Kanban : User stories management</li>
+                        </ul>
+                    </section>
+					<!-- 3.2.2.1. Des agilités -->
+					<section class="container">
+                        <header class="tile-name">Timeline</header>
+                        <hr/>
+                        <ul>
+                            <li>1 daily standing meeting (<em>daily scrum</em>)</li>
+                            <li>a 2 weeks sprint</li>
+                            <li>a 2 sprints backlog retrospective</li>
+                        </ul>
+                    </section>
+					<!-- 3.2.2.2. Mise en place -->
+					<section class="container">
+                        <article class="row">
+                            <img src="images/kanban.png"/>
+                        </article>
+                        <aside class="notes">
+                            Déroulé du suivi des tâche dans le Kanban
+                        </aside>
+                    </section>
+				</section>
+				<!-- 4. Contexte des travaux réalisés -->
+                <section class="container">
+                    <h3 class="tile-name">Projects</h3>
+                </section>
+				<section>
+                    <section class="container">
+                        <h3 class="tile-name">Projects</h3>
+                        <h4><em>Context</em></h4>
+                    </section>
+					<!-- 4.1. Intégration au SI historique -->
+					<section class="container">
+                        <header class="tile-name">Inside the historical information system</header>
+                        <hr/>
+                        <ul>
+                            <li>using the IS technological stack</li>
+                            <li>depending on its CI course</li>
+                        </ul>
+                    </section>
+					<!-- 4.2. Méthodologie appliquée -->
+					<section class="container">
+                        <header class="tile-name">Development methodology</header>
+                        <hr/>
+                        <p>Applying a standard lifecycle workflow for all projects</p>
+                        <ol>
+                            <li class="fragment">Functional and technical specifications analysis</li>
+                            <li class="fragment">Wireframes, PoC on views and their relations</li>
+                            <li class="fragment">Setting up the database relation, and object definitions</li>
+                            <li class="fragment">Software analysis</li>
+                            <li class="fragment">Functional tests</li>
+                            <li class="fragment">Deployment</li>
+                        </ol>
+                    </section>
+					<!-- 4.3. Technologies -->
+					<section class="container">
+                        <header class="tile-name">Technologies</header>
+                        <hr/>
+                        <img alt="Technologies" src="images/technos.png"/>
+                    </section>
+                    <section class="container">
+                        <header class="tile-name">Code quality</header>
+                        <hr/>
                         <article class="text-left">
                             <ul>
-								<li>Many types of datas
+                                <li>Towards a code standardization : PSR 1, 2, 7</li>
+                                <li>Code review for each functionality step</li>
+                                <li>Functional testing with Codeception</li>
+                                <li>CI with Jenkins</li>
+                                <li>Documentation</li>
+                                <li>Cookbooks</li>
+                            </ul>
+                        </article>
+                        <aside class="notes">
+                            1 : Basic Coding standard
+                            2 : Coding Style Guide
+                            7 : Http Message interface
+
+                            ++ => 5 : PHPdoc standard
+
+                            Codeception : framework de tests fonctionnels (basé sur phpunit).
+
+                            CI : Intégration continue
+                        </aside>
+                    </section>
+				</section>
+				<!-- 5. Travaux réalisés -->
+                <section>
+                    <section class="container">
+                        <h3 class="tile-name">Projects</h3>
+                        <h4><em>Multiple packages</em></h4>
+                    </section>
+                    <section class="container">
+                        <ul>
+                            <li>Repository pattern implementation package</li>
+                            <li>An API client package</li>
+                            <li>A domain technical management package, with:
+                                <ul>
+                                    <li>the technical management UI,</li>
+                                    <li>A FailOver management package</li>
+                                    <li>An Error management package</li>
+                                </ul></li>
+                            <li>An HTTP redirection management package</li>
+                        </ul>
+                    </section>
+                    <section class="container">
+                        <header class="tile-name">Global package organization</header>
+                        <hr/>
+                        <img src="images/pkg.png"/>
+                    </section>
+                </section>
+				<!-- 5.1. Paquet Repository -->
+				<section>
+                    <section class="container">
+                        <h3 class="tile-name">Projects</h3>
+                        <h4><em>A Repository pattern package</em></h4>
+                    </section>
+                    <section class="container">
+                        <header class="tile-name">Repository pattern (<em>Repositories</em>)</header>
+                        <hr/>
+                        <article class="text-left">
+                            <ul>
+                                <li>Avoiding the standard Laravel (Eloquent) model manipulation</li>
+                                <li>Forcing a <em>layered</em> system</li>
+                                <li>Improving maintenance</li>
+                                <li>Easing dependency injection</li>
+                            </ul>
+                        </article>
+                        <aside class="notes">
+                            From "ActiveRecord" (Eloquent/EntityFramework) to DataMapper (Doctrine/Hibernate)<br/>
+                        </aside>
+                    </section>
+                    <section class="container">
+                        <header class="tile-name">Concept</header>
+                        <hr/>
+                        <article class="text-left">
+                            <ul>
+                                <li>Many types of datas
                                     <ul>
                                         <li>persisted in database (as views, or tables)</li>
                                         <li>persisted via API</li>
@@ -341,54 +450,97 @@
                                         <li>... and more</li>
                                     </ul>
                                 </li>
-							</ul>
-							<hr/>
-							<p>One system to ease data manipulation</p>
+                            </ul>
+                            <hr/>
+                            <p>One system to ease data manipulation</p>
                             <p> ... whatever the storage / source</p>
                         </article>
                     </section>
-					<section>
-						<img src="images/pattern/01_RepositoryPattern/00_full.png"/>
-					</section>
-				</section>
-				<!-- DomainClient -->
-                <section>
-                    <header class="tile-name">The DomainClient</header>
+                    <section class="container">
+                        <article class="row">
+                            <img src="images/pattern/01_RepositoryPattern/00_full.png"/>
+                        </article>
+                    </section>
+                </section>
+				<!-- 5.2. Paquet Core -->
+                <section class="container">
+                    <h3 class="tile-name">Projects</h3>
+                    <h4><em>The Core package</em></h4>
+                    <hr/>
+                    <header class="tile-name">A single package for object definition</header>
+                    <hr/>
+                    <ul>
+                        <li>Collects classes from the historical IS</li>
+                        <li>Becomes the source for all objects classes</li>
+                    </ul>
+                </section>
+				<!-- 5.3. Paquet DomaineClient -->
+				<section class="container">
+                    <h3 class="tile-name">Projects</h3>
+                    <h4><em>DomaineClient</em></h4>
+                    <hr/>
+                    <header class="tile-name">A single entry point to the Anycast system in the IS</header>
+                    <hr/>
                     <br/>
-                    <article class="text-left">
+                    <ul>
+                        <li>implements : <code>Repository</code></li>
+                        <li>uses : <code>none</code></li>
+                    </ul>
+                    <p class="text-left"></p>
+                </section>
+				<!-- 5.4. Paquet DomaineManager -->
+				<section>
+                    <section class="container">
+                        <h3 class="tile-name">Projects</h3>
+                        <h4><em>DomainManager</em></h4>
+                    </section>
+                    <section class="container">
+                        <header class="tile-name">DNS technical management</header>
+                        <hr/>
                         <ul>
-                            <li>Endpoint for all resources comming from the <em>DomainFactory</em> system</li>
-                            <li>Implements the <em>Repository pattern</em></li>
+                            <li>Uses : <em>Repositories</em>, <em>DomainClient</em></li>
+                            <li>UI for the DomainClient</li>
+                            <li>Deep linking in the IS
+                                <br/>=> no regression from the past,
+                                <br/>=> migrating from old to new system,
+                                <br/>=> managing domains by creating subzones and resource records,
+                                <br/>=> online editor
+                            </li>
                         </ul>
-                    </article>
+                    </section>
+                    <section class="container">
+                        <article class="row">
+                            <img src="images/pattern/03_DomainManager/usecase.png"/>
+                        </article>
+                    </section>
+                    <section class="container">
+                        <article class="row">
+                            <img src="images/zonefile.png"/>
+                        </article>
+                    </section>
+                    <section class="container">
+                        <header class="tile-name">FailOverManager</header>
+                        <hr/>
+                        <ul>
+                            <li>Uses : <em>Repositories</em>, <em>DomainClient</em>, <em>FailOverClient</em></li>
+                            <li>Configuring record checks</li>
+                        </ul>
+                    </section>
+                    <section class="container">
+                        <header class="tile-name">ErrorManager</header>
+                        <hr/>
+                        <ul>
+                            <li>Uses : <em>Repositories</em>, <em>DomainClient</em>, <em>HttpClient</em>, <em>FailOverClient</em></li>
+                            <li>Overview of all errors occuring in the network</li>
+                            <li>Allows to replay any <em>order</em></li>
+                        </ul>
+                    </section>
                 </section>
-                <!-- DomainManager -->
-                <section>
-					<section>
-						<header class="tile-name">The DomainManager</header>
-						<br/>
-						<ul>
-							<li>Uses : <em>Repositories</em>, <em>DomainClient</em></li>
-							<li>UI for the DomainClient</li>
-							<li>Deep linking in the IS
-								<br/>=> no regression from the past,
-								<br/>=> migrating from old to new system,
-								<br/>=> managing domains by creating subzones and resource records,
-								<br/>=> online editor
-							</li>
-						</ul>
-					</section>
-					<section>
-						<img src="images/pattern/03_DomainManager/usecase.png"/>
-					</section>
-					<section>
-						<img src="images/zonefile.png"/>
-					</section>
-                </section>
-                <!-- HttpRedirect Manager -->
-                <section>
-                    <header class="tile-name">The HttpRedirectionManager</header>
-                    <br/>
+				<!-- 5.5. Paquet HttpRedirectManager -->
+				<section class="container">
+                    <h3 class="tile-name">Projects</h3>
+                    <h4><em>The HttpRedirectionManager</em></h4>
+                    <hr/>
                     <ul>
                         <li>Uses : <em>Repositories</em>, <em>DomainClient</em>, <em>HttpClient</em></li>
                         <li>No regression</li>
@@ -396,68 +548,85 @@
                         <li>Allowing SSL certificates (HTTPS)</li>
                     </ul>
                 </section>
-                <!-- FailOver Manager -->
-                <section>
-                    <header class="tile-name">FailOverManager</header>
-                    <br/>
-                    <ul>
-                        <li>Uses : <em>Repositories</em>, <em>DomainClient</em>, <em>FailOverClient</em></li>
-                        <li>Configuring record checks</li>
-                    </ul>
-                    <p><strong>FailOver</strong> : dynamic record update from checks</p>
-                </section>
-                <!-- Error Manager -->
-                <section>
-                    <header class="tile-name">ErrorManager</header>
-                    <br/>
-                    <ul>
-                        <li>Uses : <em>Repositories</em>, <em>DomainClient</em>, <em>HttpClient</em>, <em>FailOverClient</em></li>
-                        <li>Overview of all errors occuring in the network</li>
-                        <li>Allows to replay any <em>order</em></li>
-                    </ul>
-                </section>
-				<!-- Project Management -->
+				<!-- 5.6. Chiffres -->
 				<section>
-					<section>
-						<header class="tile-name">Project management</header>
-						<br/>
-						<ul>
-							<li>Mix of Agile and Scrum methods
-								<ul>
-									<li>Line of product</li>
-									<li>2 weeks sprints</li>
-								</ul>
-							</li>
-							<li>no Gantt/Pert graphs</li>
-							<li>Redmine for issue management</li>
-						</ul>
-					</section>
-					<section>
-						<header class="tile-name">Commits</header>
-						<br/>
-						<canvas id="commitGraph" width="1920" height="1080"></canvas>
-					</section>
-					<section>
-						<header class="tile-name">Issues</header>
-						<br/>
-						<canvas id="issueGraph" width="1920" height="1080"></canvas>
-					</section>
+                    <section class="container">
+                        <h3 class="tile-name">Statistics</h3>
+                    </section>
+					<!-- 5.6.1. Commits -->
+					<section class="container">
+                        <h4><em>Commits</em></h4>
+                        <article class="row">
+                            <canvas id="commitGraph" width="1920" height="1080"></canvas>
+                        </article>
+                    </section>
+					<!-- 5.6.2. Tickets -->
+                    <section class="container">
+                        <h4><em>Tickets</em></h4>
+                        <article class="row">
+                            <canvas id="issueGraph" width="1920" height="1080"></canvas>
+                        </article>
+                    </section>
 				</section>
+				<!-- 6. Perspectives d'évolution -->
 				<section>
-					<section>
-						<header class="tile-name">Towards evolution</header>
-						<br/>
-						<ul class="text-left">
-							<li>Separate application<br/>
-								- starter for a new IS major version</li>
-							<li>POCs for available technologies/libraries<br/>
-								- changing ORM ?</li>
-							<li>an API/SPA combo</li>
-							<li>Sockets, message queues ...</li>
-						</ul>
-					</section>
+                    <section class="container">
+                        <h3 class="tile-name">Towards evolution</h3>
+                    </section>
+					<!-- 6.1. Élargissement de la stack technologique -->
+					<section class="container">
+                        <h4><em>Enlarging the technical stack</em></h4>
+                        <hr/>
+                        <ul>
+                            <li>pros:
+                                <ul>
+                                    <li>more capacities</li>
+                                    <li>more possibilities in terms of system evolutions</li>
+                                </ul>
+                            </li>
+                            <li>cons:
+                                <ul>
+                                    <li>not in the point of view</li>
+                                    <li>requires to set up a better knowledge sharing system</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+					<!-- 6.2. Quitter la vielle application -->
+					<section class="container">
+                        <h4><em>Leaving the historical IS</em></h4>
+                        <hr/>
+                        <ul>
+                            <li>pros:
+                                <ul>
+                                    <li>better monitoring</li>
+                                    <li>better data model</li>
+                                    <li>...</li>
+                                </ul>
+                            </li>
+                            <li>cons:
+                                <ul>
+                                    <li>not in the point of view</li>
+                                    <li>would require to recompose the whole system</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+					<!-- 6.3. Vers un essaim applicatif et réactif -->
+                    <section class="container">
+                        <header class="tile-name">Towards a reactive swarm</header>
+                        <br/>
+                        <ul class="text-left">
+                            <li>Separate application<br/>
+                                - starter for a new IS major version</li>
+                            <li>POCs for available technologies/libraries<br/>
+                                - changing ORM ?</li>
+                            <li>an API/SPA combo</li>
+                            <li>Sockets, message queues ...</li>
+                        </ul>
+                    </section>
 				</section>
-				<section>
+				<section class="container">
 					<header class="tile-name">Bibliography and sources</header>
 					<br/>
 					<ul class="text-left">
@@ -467,11 +636,10 @@
 						<li>RFC8200 (IPv6 standard) : <a href="https://tools.ietf.org/html/rfc8200">https://tools.ietf.org/html/rfc8200</a></li>
 						<li>Broadcasts : <a href="https://en.wikipedia.org/wiki/Broadcasting_(networking)">https://en.wikipedia.org/wiki/Broadcasting_(networking)</a></li>
 						<li>ISO 27001 : <a href="https://www.iso.org/obp/ui/fr/#iso:std:iso-iec:27001:ed-2:v1:fr">https://www.iso.org/obp/ui/fr/#iso:std:iso-iec:27001:ed-2:v1:fr</a></li>
-						<li>PSRs : <a href="https://www.php-fig.org/psr/">https://www.php-fig.org/psr/</li>
+						<li>PSRs : <a href="https://www.php-fig.org/psr/">https://www.php-fig.org/psr/</a></li>
 					</ul>
 				</section>
 			</div>
-		</div>
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
 		<script src="js/leaflet.js"></script>
