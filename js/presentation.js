@@ -63,12 +63,14 @@ var ptMonaco = L.marker([43.7289, 7.4183]).addTo(nmsMap);
 
 // Charts
 var colors = [
-    "#DAF7A6",
-    "#FFC300",
-    "#FF5733",
-    "#C70039",
-    "#900C3F",
-    "#581845"
+    "#33CCCC",
+    "#CC0066",
+    "#99CC33",
+    "#1166AA",
+    "#196666",
+    "#660033",
+    "#4c6619",
+    "#083355"
 ];
 
 function getDataKeys() {
